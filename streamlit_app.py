@@ -46,11 +46,13 @@ try:
     back_from_function = get_fruityvice_data(fruit_choice)
     streamlit.dataframe(back_from_function)
 
-# streamlit.stop()
+streamlit.stop()
 
 #import snowflake.connector
 
 streamlit.header ("The fruit load list contains:")
+
+
 #Snowflake-related functions
 def get_fruit. _load_ _list():
     with my_cnx. cursor() as my_cur:
