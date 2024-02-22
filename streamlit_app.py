@@ -28,14 +28,14 @@ streamlit.dataframe(fruit_show)
 streamlit.header('Fruityvice Fruit Advice')
 
 import requests
-fruityvice_response = requests.get('https://fruityvice.com/api/fruit/watermelon')
-
-#Normalize json data into a table
-fruityvice_normalize = pandas.json_normalize(fruityvice_response.json())
-
 
 fruit_choice = streamlit.text_input('What fruit would you like information about?', 'Kiwi')
 streamlit.write('The user entered', fruit_choice)
+
+fruityvice_response = requests.get('https://fruityvice.com/api/fruit/' + fruit_choice)
+
+#Normalize json data into a table
+fruityvice_normalize = pandas.json_normalize(fruityvice_response.json())
 
 #Show output in a table form
 streamlit.dataframe(fruityvice_normalize)
